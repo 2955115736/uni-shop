@@ -8,12 +8,18 @@ const install = (Vue, vm) => {
 	// 首页
 	let index = (params = {}) => vm.$u.get('api/index',params);
 	
-	//登录
-	let login = params => vm.$u.post('api/auth/login',params)
+	//认证相关
+	let login = params => vm.$u.post('api/auth/login',params) //登录
+	let register = params => vm.$u.post('api/auth/register',params) //注册
+	
+	//请求用户信息
+	let user = () =>vm.$u.get('api/user')
 	// 将各个定义的接口名称，统一放进对象挂载到vm.$u.api(因为vm就是this，也即this.$u.api)下
 	vm.$u.api = {
 		index,
-		login
+		login,
+		register,
+		user,
 	};
 }
 

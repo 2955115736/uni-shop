@@ -1,13 +1,13 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			//console.log('App Launch')
 		},
 		onShow: function() {
-			console.log('App Show')
+			//console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			//console.log('App Hide')
 		}
 	}
 </script>
@@ -18,10 +18,6 @@
 	/* #ifndef APP-NVUE */
 	@import '@/static/customicons.css';
 	@import "uview-ui/index.scss";
-	// 设置整个项目的背景色
-	page {
-		background-color: #f5f5f5;
-	}
 
 	/* #endif */
 	.example-info {

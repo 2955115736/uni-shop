@@ -26,6 +26,10 @@ Vue.use(httpInterceptor, app)
 import httpApi from '@/common/http.api.js'
 Vue.use(httpApi, app)
 
+//自定义工具
+import utils from '@/common/utils.js'
+Vue.use(utils,app)
+
 app.$mount()
 // #endif
 

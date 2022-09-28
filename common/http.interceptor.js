@@ -22,8 +22,8 @@ const install = (Vue, vm) => {
 		// 方式一，存放在vuex的token，假设使用了uView封装的vuex方式
 		// 见：https://uviewui.com/components/globalVariable.html
 		// config.header.token = vm.token;
-		//config.header.Authorization = "Bearer " + vm.access_token
-		config.header.Authorization = "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnNob3AuZWR1d29yay5jblwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NDI2MTAzNiwiZXhwIjoxNjY0NjIxMDM2LCJuYmYiOjE2NjQyNjEwMzYsImp0aSI6Ik9KVVNiSnNVWmxoQlZnV1kiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.UNQ26vMFawJ7Pm7IGhvg-h6wXGY_dmZ_lzJL_F2HOx4"
+		config.header.Authorization = "Bearer " + vm.vuex_token
+		
 		// 方式二，如果没有使用uView封装的vuex方法，那么需要使用$store.state获取
 		// config.header.token = vm.$store.state.token;
 		
@@ -57,11 +57,14 @@ const install = (Vue, vm) => {
 			return false;
 		}else if(statusCode == 401) {
 			// 假设201为token失效，这里跳转登录
-			vm.$u.toast('验证失败，请重新登录');
-			setTimeout(() => {
-				// 此为uView的方法，详见路由相关文档
-				vm.$u.route('/pages/user/login')
-			}, 1500)
+			//401有两种状况，一种是认证通过，一种是没有token或者token过期
+			if(data.message == 'Unauthorized'){
+				vm.$u.toast('账户或者密码错误');
+			}else{
+				//请求需要认证啊api，跳转登录
+				vm.$u.utils.isLogin();
+			}
+			
 			return false;
 		}else if(statusCode == 404){
 			vm.$u.toast('未能找到请求资源')
