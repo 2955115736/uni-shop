@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.banner.data-v-57280228 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20rpx 0 10rpx;
+  border-bottom: 2rpx solid #eee;
+  box-shadow: 0rpx 30rpx 20rpx -30rpx #999;
+}
+

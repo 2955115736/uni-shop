@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.goods-item.data-v-13091538 {
+  padding: 40rpx;
+  margin-top: 20rpx;
+  box-shadow: 0 12rpx 20rpx 0 rgba(0, 0, 0, 0.1);
+}
+.goods-item .title.data-v-13091538 {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin: 20rpx 0;
+  width: 100%;
+}
+.goods-item .formation.data-v-13091538 {
+  font-size: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.goods-item .formation .price.data-v-13091538 {
+  color: red;
+  width: 40%;
+  font-weight: 600;
+}
+.goods-item .formation .sales.data-v-13091538 {
+  color: #999;
+  width: 40%;
+  font-weight: 600;
+}
+

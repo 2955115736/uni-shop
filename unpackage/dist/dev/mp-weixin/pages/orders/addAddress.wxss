@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.content.data-v-de0aa058 {
+  padding: 0 40rpx;
+}
+.select.data-v-de0aa058 {
+  position: relative;
+}
+.select .icon.data-v-de0aa058 {
+  position: absolute;
+  right: 0%;
+}
+

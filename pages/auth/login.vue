@@ -1,14 +1,12 @@
 <template>
 	<view class="wrap">
-		<view class="top"></view>
 		<view class="content">
 			<view class="title">欢迎登录图书商城</view>
 			<input class="u-border-bottom" v-model="email" placeholder="请输入邮箱" />
 			<input class="u-border-bottom" type="password" v-model="password" placeholder="请输入密码" />
 			<button @tap="submit" :style="[inputStyle]" class="getCaptcha">登录</button>
 			<view class="alternative">
-				<view class="password">找回密码</view>
-				<view class="issue">注册用户</view>
+				<view class="issue" @click="toRegister">注册用户</view>
 			</view>
 		</view>
 	</view>
@@ -47,29 +45,44 @@ export default {
 			this.$u.vuex('vuex_token',loginRes.access_token);
 			
 			this.$u.toast('登录成功');
-			//请求用户信息
-			const userInfo = await this.$u.api.user();
-			//缓存用户信息
-			this.$u.vuex('vuex_user',userInfo)
+			
+			//获取用户信息
+			this.$u.utils.userInfoUpdate();
 			//提取存储的来源页地址
 			const backUrl = uni.getStorageSync('back_url') ? uni.getStorageSync('back_url') : 'pages/index/index';
+			
 			console.log(backUrl);
-			//登录之后跳转到来源页
-			setTimeout(() => {
-				this.$u.route({
-					type:'reLaunch',
-					url: backUrl
-				})
-			}, 1000)
+			if(backUrl === 'pages/index/index' || backUrl === 'pages/center/center' || backUrl === 'pages/cart/cart' || backUrl === 'pages/goods/goods'){
+				//登录之后跳转到来源页
+				setTimeout(() => {
+					this.$u.route({
+						type:'switchTab',
+						url: backUrl
+					})
+				}, 1000)
+			}else{
+				setTimeout(() => {
+					this.$u.route({
+						type:'redirectTo',
+						url: backUrl
+					})
+				}, 1000)
+			}
+		},
+		
+		toRegister(){
+			this.$u.route({
+				url:'/pages/auth/register',
+			})
 		}
 	}
 };
 </script>
 
 <style lang="scss" scoped>
-	.u-border-bottom{
-		margin-bottom: 40rpx !important;
-	}
+.u-border-bottom{
+	margin-bottom: 40rpx !important;
+}
 .wrap {
 	font-size: 28rpx;
 	.content {
@@ -100,8 +113,7 @@ export default {
 		}
 		.alternative {
 			color: $u-tips-color;
-			display: flex;
-			justify-content: space-between;
+			text-align: center;
 			margin-top: 30rpx;
 		}
 	}

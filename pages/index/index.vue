@@ -41,13 +41,14 @@
 		},
 		methods:{
 			tabsChange(index){
-				console.log(index);
+				//console.log(index);
 				this.current = index;
 				//切换菜单，清空商品列表和页数
 				this.goods = [];
 				this.page = 1;
 				this.getData();
 			},
+			
 			async getData(){
 				this.isLoding = true;
 				const params = {
@@ -64,13 +65,13 @@
 				this.slides = res.slides;
 				//将其他页面的商品添加进商品列表
 				this.goods = [...this.goods,...res.goods.data];
-				console.log(res);
+				//console.log(res);
 			},
 		},
 		// 可以在 pages.json 的页面配置中设置触发距离onReachBottomDistance在触发距离内滑动期间,本事件只会被触发—次。
 		onReachBottom() {
 			this.page = this.page+1;
-			console.log(this.page);
+			//console.log(this.page);
 			this.getData();
 		}
 	}

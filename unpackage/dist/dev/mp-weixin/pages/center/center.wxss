@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+page {
+  background-color: #ededed;
+}
+.user-box {
+  background-color: #fff;
+}
+

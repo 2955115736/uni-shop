@@ -35,7 +35,7 @@
 		methods: {
 			async submit(){
 				//规则验证
-				if(!this.name || !this.$u.test.email(this.email) || !this.password || !this.password_confirmation) returh;
+				if(!this.name || !this.$u.test.email(this.email) || !this.password || !this.password_confirmation) return this.$u.toast("请填写完整信息");
 				
 				//准备参数
 				let params = {
@@ -52,7 +52,7 @@
 				this.$u.toast('注册成功')
 				setTimeout(()=>{
 					this.$u.route({
-						type:'redirect',
+						type:'redirectTo',
 						url:'pages/auth/login'
 					})
 				},1000)

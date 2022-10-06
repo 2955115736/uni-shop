@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.u-border-bottom.data-v-cbd6070a {
+  margin-bottom: 40rpx !important;
+}
+.wrap.data-v-cbd6070a {
+  font-size: 28rpx;
+}
+.wrap .content.data-v-cbd6070a {
+  width: 600rpx;
+  margin: 80rpx auto 0;
+}
+.wrap .content .title.data-v-cbd6070a {
+  text-align: center;
+  font-size: 50rpx;
+  font-weight: 500;
+  margin-bottom: 100rpx;
+}
+.wrap .content input.data-v-cbd6070a {
+  text-align: left;
+  margin-bottom: 10rpx;
+  padding-bottom: 6rpx;
+}
+.wrap .content .getCaptcha.data-v-cbd6070a {
+  background-color: #fdf3d0;
+  color: #909399;
+  border: none;
+  font-size: 30rpx;
+  padding: 12rpx 0;
+}
+.wrap .content .getCaptcha.data-v-cbd6070a::after {
+  border: none;
+}
+.wrap .content .alternative.data-v-cbd6070a {
+  color: #909399;
+  text-align: center;
+  margin-top: 30rpx;
+}
+

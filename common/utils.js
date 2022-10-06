@@ -5,7 +5,7 @@ const install = (Vue,vm) => {
 			//console.log(getCurrentPages());
 			//来自哪个页面
 			const currentPage = getCurrentPages().pop();
-			console.log(currentPage.route);
+			//console.log(currentPage.route);
 			
 			//获取页面路径和请求参数
 			const {options,route} = currentPage;
@@ -31,8 +31,17 @@ const install = (Vue,vm) => {
 		}
 		return true;
 	};
+	
+	//更新用户信息
+	const userInfoUpdate = async () => {
+		//请求用户信息
+		const userInfo = await vm.$u.api.user();
+		//缓存用户信息
+		vm.$u.vuex('vuex_user',userInfo)
+	}
 	vm.$u.utils = {
 		isLogin,
+		userInfoUpdate,
 	}
 }
 
